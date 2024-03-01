@@ -1,0 +1,1491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(52, 152, 219);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="minimumSize">
+       <size>
+        <width>1902</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Rounded MT Bold</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(85, 170, 255);
+</string>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="Ajouter">
+       <attribute name="title">
+        <string>Ajouter</string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>30</y>
+          <width>841</width>
+          <height>621</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Trebuchet MS</family>
+          <pointsize>24</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* Style de base pour la QGroupBox */
+QGroupBox {
+    border: 4px solid #000000; /* Bordure bleue */
+    border-radius: 25px; /* Coins arrondis */
+    margin-top: 10px; /* Marge en haut */
+}
+
+/* Style du titre de la QGroupBox */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 3px;
+    background-color: #3498db; /* Fond bleu pour le titre */
+    color: #ffffff; /* Texte blanc pour le titre */
+}
+
+/* Style des QLabel à l'intérieur de la QGroupBox */
+QLabel {
+    color: #000000; /* Couleur du texte */
+}
+
+/* Style des QRadioButton à l'intérieur de la QGroupBox */
+QRadioButton {
+    color: #333333; /* Couleur du texte */
+}
+
+/* Style des QComboBox à l'intérieur de la QGroupBox */
+QComboBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QLineEdit à l'intérieur de la QGroupBox */
+QLineEdit {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QSpinBox à l'intérieur de la QGroupBox */
+QSpinBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}</string>
+        </property>
+        <property name="title">
+         <string>AJOUTER</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>80</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>TITRE</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>140</y>
+           <width>171</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>NBRRE ATHLETE</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>210</y>
+           <width>171</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Date_evennement</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>270</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Adresse</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>380</y>
+           <width>191</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>DUREE</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineedit_titre">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>70</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Entrez votre TITRE</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineedit_nbreathlete">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>130</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Entrez votre NBRE ATHLETE</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineedit_adresse">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>260</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Entrez votre adresse </string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineedit_duree">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>380</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Entrez votre DUREE</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>440</y>
+           <width>191</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Type de sport : </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="lineedit_typedesport">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>440</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Choisir Le type de Sport</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Natation</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Paddling</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Boating</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Kayak</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QPushButton" name="ajouter">
+         <property name="geometry">
+          <rect>
+           <x>380</x>
+           <y>520</y>
+           <width>221</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Style de base pour le QPushButton */
+
+QPushButton {
+    background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 18pt &quot;Times New Roman&quot;;
+}
+
+/* Style du QPushButton lorsqu'il est survolé */
+QPushButton:hover {
+    background-color: #1b6488; /* Bleu plus foncé au survol */
+}
+
+/* Style du QPushButton lorsqu'il est pressé (clic) */
+QPushButton:pressed {
+    background-color: #1a5c7a; /* Bleu encore plus foncé au clic */
+}
+
+/* Style du QPushButton lorsqu'il est en focus (tabulation) */
+QPushButton:focus {
+    outline: none; /* Supprimer le contour par défaut */
+    border: 2px solid #1a5c7a; /* Bordure plus foncée lorsqu'en focus */
+}
+
+/* Style du QPushButton lorsqu'il est désactivé */
+QPushButton:disabled {
+    background-color: #b0b0b0; /* Fond gris clair pour les boutons désactivés */
+    color: #707070; /* Couleur du texte grise pour les boutons désactivés */
+    border: 2px solid #b0b0b0; /* Bordure grise pour les boutons désactivés */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Ajouter </string>
+         </property>
+        </widget>
+        <widget class="QDateEdit" name="lineedit_dateevenement">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>200</y>
+           <width>471</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="specialValueText">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>841</width>
+           <height>621</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Trebuchet MS</family>
+           <pointsize>24</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Style de base pour la QGroupBox */
+QGroupBox {
+    border: 4px solid #000000; /* Bordure bleue */
+    border-radius: 25px; /* Coins arrondis */
+    margin-top: 10px; /* Marge en haut */
+}
+
+/* Style du titre de la QGroupBox */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 3px;
+    background-color: #3498db; /* Fond bleu pour le titre */
+    color: #ffffff; /* Texte blanc pour le titre */
+}
+
+/* Style des QLabel à l'intérieur de la QGroupBox */
+QLabel {
+    color: #000000; /* Couleur du texte */
+}
+
+/* Style des QRadioButton à l'intérieur de la QGroupBox */
+QRadioButton {
+    color: #333333; /* Couleur du texte */
+}
+
+/* Style des QComboBox à l'intérieur de la QGroupBox */
+QComboBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QLineEdit à l'intérieur de la QGroupBox */
+QLineEdit {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QSpinBox à l'intérieur de la QGroupBox */
+QSpinBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}</string>
+         </property>
+         <property name="title">
+          <string>AJOUTER</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>80</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+          </property>
+          <property name="text">
+           <string>TITRE</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_12">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>171</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+          </property>
+          <property name="text">
+           <string>NBRRE ATHLETE</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_15">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>210</y>
+            <width>171</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Date_evennement</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_16">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>270</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Adresse</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_17">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>380</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+          </property>
+          <property name="text">
+           <string>DUREE</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineedit_titre_3">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>70</y>
+            <width>471</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>Entrez votre TITRE</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineedit_nbreathlete_3">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>130</y>
+            <width>471</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>Entrez votre NBRE ATHLETE</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineedit_adresse_3">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>260</y>
+            <width>471</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>Entrez votre adresse </string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineedit_duree_3">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>380</y>
+            <width>471</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>Entrez votre DUREE</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_18">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>440</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Type de sport : </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="lineedit_typedesport_2">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>440</y>
+            <width>471</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>Choisir Le type de Sport</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Natation</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Paddling</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Boating</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Kayak</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QPushButton" name="ajouter_2">
+          <property name="geometry">
+           <rect>
+            <x>380</x>
+            <y>520</y>
+            <width>221</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* Style de base pour le QPushButton */
+
+QPushButton {
+    background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 18pt &quot;Times New Roman&quot;;
+}
+
+/* Style du QPushButton lorsqu'il est survolé */
+QPushButton:hover {
+    background-color: #1b6488; /* Bleu plus foncé au survol */
+}
+
+/* Style du QPushButton lorsqu'il est pressé (clic) */
+QPushButton:pressed {
+    background-color: #1a5c7a; /* Bleu encore plus foncé au clic */
+}
+
+/* Style du QPushButton lorsqu'il est en focus (tabulation) */
+QPushButton:focus {
+    outline: none; /* Supprimer le contour par défaut */
+    border: 2px solid #1a5c7a; /* Bordure plus foncée lorsqu'en focus */
+}
+
+/* Style du QPushButton lorsqu'il est désactivé */
+QPushButton:disabled {
+    background-color: #b0b0b0; /* Fond gris clair pour les boutons désactivés */
+    color: #707070; /* Couleur du texte grise pour les boutons désactivés */
+    border: 2px solid #b0b0b0; /* Bordure grise pour les boutons désactivés */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Ajouter </string>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="lineedit_dateevenement_2">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>200</y>
+            <width>471</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="specialValueText">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Modifier">
+       <attribute name="title">
+        <string>Modifier </string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>30</y>
+          <width>841</width>
+          <height>621</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Trebuchet MS</family>
+          <pointsize>24</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* Style de base pour la QGroupBox */
+QGroupBox {
+    border: 4px solid #000000; /* Bordure bleue */
+    border-radius: 25px; /* Coins arrondis */
+    margin-top: 10px; /* Marge en haut */
+}
+
+/* Style du titre de la QGroupBox */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 3px;
+    background-color: #3498db; /* Fond bleu pour le titre */
+    color: #ffffff; /* Texte blanc pour le titre */
+}
+
+/* Style des QLabel à l'intérieur de la QGroupBox */
+QLabel {
+    color: #000000; /* Couleur du texte */
+}
+
+/* Style des QRadioButton à l'intérieur de la QGroupBox */
+QRadioButton {
+    color: #333333; /* Couleur du texte */
+}
+
+/* Style des QComboBox à l'intérieur de la QGroupBox */
+QComboBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QLineEdit à l'intérieur de la QGroupBox */
+QLineEdit {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QSpinBox à l'intérieur de la QGroupBox */
+QSpinBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}</string>
+        </property>
+        <property name="title">
+         <string>MODIFIER</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>80</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>TITRE</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>140</y>
+           <width>171</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>NBRRE ATHLETE</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>210</y>
+           <width>171</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Date_evennement</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_9">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>270</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Adresse</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_10">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>380</y>
+           <width>191</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>DUREE</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineedit_titre_2">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>70</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Entrez votre TITRE</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineedit_nbreathlete_2">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>130</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Entrez votre NBRE ATHLETE</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineedit_adresse_2">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>260</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Entrez votre adresse </string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineedit_duree_2">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>380</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Entrez votre DUREE</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_14">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>440</y>
+           <width>191</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Type de sport : </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="linedit_typedesport">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>440</y>
+           <width>471</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Choisir Le type de Sport</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Natation</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Paddling</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Boating</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Kayak</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QPushButton" name="modifier">
+         <property name="geometry">
+          <rect>
+           <x>380</x>
+           <y>520</y>
+           <width>221</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Style de base pour le QPushButton */
+
+QPushButton {
+    background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 18pt &quot;Times New Roman&quot;;
+}
+
+/* Style du QPushButton lorsqu'il est survolé */
+QPushButton:hover {
+    background-color: #1b6488; /* Bleu plus foncé au survol */
+}
+
+/* Style du QPushButton lorsqu'il est pressé (clic) */
+QPushButton:pressed {
+    background-color: #1a5c7a; /* Bleu encore plus foncé au clic */
+}
+
+/* Style du QPushButton lorsqu'il est en focus (tabulation) */
+QPushButton:focus {
+    outline: none; /* Supprimer le contour par défaut */
+    border: 2px solid #1a5c7a; /* Bordure plus foncée lorsqu'en focus */
+}
+
+/* Style du QPushButton lorsqu'il est désactivé */
+QPushButton:disabled {
+    background-color: #b0b0b0; /* Fond gris clair pour les boutons désactivés */
+    color: #707070; /* Couleur du texte grise pour les boutons désactivés */
+    border: 2px solid #b0b0b0; /* Bordure grise pour les boutons désactivés */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Modifier </string>
+         </property>
+        </widget>
+        <widget class="QDateEdit" name="line_edit_dateevenement">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>200</y>
+           <width>471</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="specialValueText">
+          <string/>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="afficher">
+       <attribute name="title">
+        <string>Afficher</string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>1141</width>
+          <height>651</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Trebuchet MS</family>
+          <pointsize>24</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* Style de base pour la QGroupBox */
+QGroupBox {
+    border: 4px solid #000000; /* Bordure bleue */
+    border-radius: 25px; /* Coins arrondis */
+    margin-top: 10px; /* Marge en haut */
+}
+
+/* Style du titre de la QGroupBox */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 3px;
+    background-color: #3498db; /* Fond bleu pour le titre */
+    color: #ffffff; /* Texte blanc pour le titre */
+}
+
+/* Style des QLabel à l'intérieur de la QGroupBox */
+QLabel {
+    color: #000000; /* Couleur du texte */
+}
+
+/* Style des QRadioButton à l'intérieur de la QGroupBox */
+QRadioButton {
+    color: #333333; /* Couleur du texte */
+}
+
+/* Style des QComboBox à l'intérieur de la QGroupBox */
+QComboBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QLineEdit à l'intérieur de la QGroupBox */
+QLineEdit {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QSpinBox à l'intérieur de la QGroupBox */
+QSpinBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}</string>
+        </property>
+        <property name="title">
+         <string>Liste des evenements</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <widget class="QTableView" name="table">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>130</y>
+           <width>651</width>
+           <height>241</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="supprimer">
+       <attribute name="title">
+        <string>Supprimer</string>
+       </attribute>
+       <widget class="QLineEdit" name="lineedit_titre_4">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>170</y>
+          <width>471</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_19">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>150</y>
+          <width>161</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;
+color: rgb(0, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>titre</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ajouter_3">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>340</y>
+          <width>221</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* Style de base pour le QPushButton */
+
+QPushButton {
+    background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 18pt &quot;Times New Roman&quot;;
+}
+
+/* Style du QPushButton lorsqu'il est survolé */
+QPushButton:hover {
+    background-color: #1b6488; /* Bleu plus foncé au survol */
+}
+
+/* Style du QPushButton lorsqu'il est pressé (clic) */
+QPushButton:pressed {
+    background-color: #1a5c7a; /* Bleu encore plus foncé au clic */
+}
+
+/* Style du QPushButton lorsqu'il est en focus (tabulation) */
+QPushButton:focus {
+    outline: none; /* Supprimer le contour par défaut */
+    border: 2px solid #1a5c7a; /* Bordure plus foncée lorsqu'en focus */
+}
+
+/* Style du QPushButton lorsqu'il est désactivé */
+QPushButton:disabled {
+    background-color: #b0b0b0; /* Fond gris clair pour les boutons désactivés */
+    color: #707070; /* Couleur du texte grise pour les boutons désactivés */
+    border: 2px solid #b0b0b0; /* Bordure grise pour les boutons désactivés */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
