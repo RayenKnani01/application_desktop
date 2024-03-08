@@ -23,7 +23,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>270</x>
       <y>40</y>
       <width>1674</width>
       <height>861</height>
@@ -99,8 +99,307 @@ QTabBar {
 </string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
+    <widget class="QWidget" name="afficher">
+     <attribute name="title">
+      <string>Liste</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>100</y>
+        <width>1021</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Trebuchet MS</family>
+        <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* Style de base pour la QGroupBox */
+QGroupBox {
+    border: 4px solid #000000; /* Bordure bleue */
+    border-radius: 25px; /* Coins arrondis */
+    margin-top: 10px; /* Marge en haut */
+}
+
+/* Style du titre de la QGroupBox */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 3px;
+    background-color: #3498db; /* Fond bleu pour le titre */
+    color: #ffffff; /* Texte blanc pour le titre */
+}
+
+/* Style des QLabel à l'intérieur de la QGroupBox */
+QLabel {
+    color: #000000; /* Couleur du texte */
+}
+
+/* Style des QRadioButton à l'intérieur de la QGroupBox */
+QRadioButton {
+    color: #333333; /* Couleur du texte */
+}
+
+/* Style des QComboBox à l'intérieur de la QGroupBox */
+QComboBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QLineEdit à l'intérieur de la QGroupBox */
+QLineEdit {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style des QSpinBox à l'intérieur de la QGroupBox */
+QSpinBox {
+    background-color: #ffffff; /* Fond blanc */
+    color: #333333; /* Couleur du texte */
+    border: 1px solid #3498db; /* Bordure bleue */
+    border-radius: 3px; /* Coins arrondis */
+    padding: 2px; /* Espacement interne */
+}
+
+/* Style général pour les widgets lorsqu'ils sont désactivés */
+QWidget:disabled {
+    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
+    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
+}</string>
+      </property>
+      <property name="title">
+       <string>liste des athlètes</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <widget class="QTableView" name="tableView">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>60</y>
+         <width>941</width>
+         <height>451</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_critereRecherche">
+      <property name="geometry">
+       <rect>
+        <x>1190</x>
+        <y>110</y>
+        <width>271</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px; </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Rechercher</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButtonRechercher_met">
+      <property name="geometry">
+       <rect>
+        <x>1480</x>
+        <y>110</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 15pt ;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../../Downloads/search_6033394.png</normaloff>../../../Downloads/search_6033394.png</iconset>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>1330</x>
+        <y>310</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 15pt ;</string>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>1330</x>
+        <y>450</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 15pt ;</string>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>1330</x>
+        <y>590</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 15pt ;</string>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_critereRecherche">
+      <property name="geometry">
+       <rect>
+        <x>1230</x>
+        <y>30</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Choisir un critere</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ID_ATHLETE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NOM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>PRENOM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Telephone</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton_afficher">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>660</y>
+        <width>201</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 15pt ;</string>
+      </property>
+      <property name="text">
+       <string>Afficher</string>
+      </property>
+     </widget>
+     <zorder>groupBox_2</zorder>
+     <zorder>lineEdit_critereRecherche</zorder>
+     <zorder>pushButton_2</zorder>
+     <zorder>pushButton_3</zorder>
+     <zorder>pushButton_5</zorder>
+     <zorder>pushButtonRechercher_met</zorder>
+     <zorder>comboBox_critereRecherche</zorder>
+     <zorder>pushButton_afficher</zorder>
+    </widget>
     <widget class="QWidget" name="Ajouter">
      <attribute name="title">
       <string>Ajouter</string>
@@ -1604,108 +1903,6 @@ QWidget:disabled {
        </property>
        <property name="placeholderText">
         <string/>
-       </property>
-      </widget>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="afficher">
-     <attribute name="title">
-      <string>Afficher</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_2">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>80</y>
-        <width>1121</width>
-        <height>541</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Trebuchet MS</family>
-        <pointsize>24</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">/* Style de base pour la QGroupBox */
-QGroupBox {
-    border: 4px solid #000000; /* Bordure bleue */
-    border-radius: 25px; /* Coins arrondis */
-    margin-top: 10px; /* Marge en haut */
-}
-
-/* Style du titre de la QGroupBox */
-QGroupBox::title {
-    subcontrol-origin: margin;
-    subcontrol-position: top center;
-    padding: 0 3px;
-    background-color: #3498db; /* Fond bleu pour le titre */
-    color: #ffffff; /* Texte blanc pour le titre */
-}
-
-/* Style des QLabel à l'intérieur de la QGroupBox */
-QLabel {
-    color: #000000; /* Couleur du texte */
-}
-
-/* Style des QRadioButton à l'intérieur de la QGroupBox */
-QRadioButton {
-    color: #333333; /* Couleur du texte */
-}
-
-/* Style des QComboBox à l'intérieur de la QGroupBox */
-QComboBox {
-    background-color: #ffffff; /* Fond blanc */
-    color: #333333; /* Couleur du texte */
-    border: 1px solid #3498db; /* Bordure bleue */
-    border-radius: 3px; /* Coins arrondis */
-    padding: 2px; /* Espacement interne */
-}
-
-/* Style des QLineEdit à l'intérieur de la QGroupBox */
-QLineEdit {
-    background-color: #ffffff; /* Fond blanc */
-    color: #333333; /* Couleur du texte */
-    border: 1px solid #3498db; /* Bordure bleue */
-    border-radius: 3px; /* Coins arrondis */
-    padding: 2px; /* Espacement interne */
-}
-
-/* Style des QSpinBox à l'intérieur de la QGroupBox */
-QSpinBox {
-    background-color: #ffffff; /* Fond blanc */
-    color: #333333; /* Couleur du texte */
-    border: 1px solid #3498db; /* Bordure bleue */
-    border-radius: 3px; /* Coins arrondis */
-    padding: 2px; /* Espacement interne */
-}
-
-/* Style général pour les widgets lorsqu'ils sont désactivés */
-QWidget:disabled {
-    background-color: #f0f0f0; /* Fond gris clair pour les widgets désactivés */
-    color: #a0a0a0; /* Couleur du texte grise pour les widgets désactivés */
-}</string>
-      </property>
-      <property name="title">
-       <string>liste des athlètes</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <widget class="QTableView" name="tableView">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>60</y>
-         <width>981</width>
-         <height>451</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </widget>

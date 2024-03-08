@@ -26,6 +26,8 @@ private slots:
     void on_pushButton_supprimer_clicked();
     void on_pushButton_rechercher2_clicked();
     void on_pushButton_modifier_clicked();
+    void on_pushButtonRechercher_met_clicked();
+    void on_pushButton_afficher_clicked();
    // void slotComboBoxChanged();
 private:
     Ui::MainWindow *ui;
@@ -34,6 +36,7 @@ private:
     bool supprimerAthleteParId(int id);
     bool modifierAthlete(int id);
     athlete* rechercherParId(int id);
+
 
 };
 #endif // MAINWINDOW_H

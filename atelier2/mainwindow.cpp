@@ -17,6 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineedit_tel->setValidator(new QIntValidator(0, 99999999, this));
     connect(ui->pushButton_rechercher, SIGNAL(clicked()), this, SLOT(on_pushButton_rechercher_clicked()));
     connect(ui->pushButton_supprimer, SIGNAL(clicked()), this, SLOT(on_pushButton_supprimer_clicked()));
+    // Dans le constructeur de MainWindow
+    connect(ui->pushButtonRechercher_met, SIGNAL(clicked()), this, SLOT(on_pushButtonRechercher_met_clicked()));
+
 }
 
 MainWindow::~MainWindow()
@@ -27,6 +30,40 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_2_pressed()
 {
     close();
+}
+
+QSqlQueryModel* rechercher(const QString& critere) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    QSqlQuery query;
+
+    // Utilisez le critère pour effectuer la recherche
+    query.prepare("SELECT * FROM ATHLETE WHERE ID_ATHLETE=:critere OR NOM = :critere OR PRENOM = :critere OR TEL = :critere OR TYPE_SPORT = :critere");
+    query.bindValue(":critere", critere);
+
+    if (query.exec()) {
+        model->setQuery(query);
+        return model;
+    } else {
+        // Gérer les erreurs ou retourner nullptr selon vos besoins
+        delete model;
+        return nullptr;
+    }
+}
+
+void MainWindow::on_pushButtonRechercher_met_clicked() {
+    QString critereRecherche = ui->lineEdit_critereRecherche->text();
+    QString typeRecherche = ui->comboBox_critereRecherche->currentText();
+
+    athlete athleteInstance;
+
+        // Appel de la fonction de recherche avec le critère et le type de recherche
+        QSqlQueryModel* model = athleteInstance.rechercher(critereRecherche, typeRecherche);
+    if (model != nullptr) {
+        ui->tableView->setModel(model);
+    } else {
+        // Gérer les erreurs ou afficher un message à l'utilisateur selon vos besoins
+        QMessageBox::warning(this, "Avertissement", "Erreur lors de la recherche!", QMessageBox::Ok);
+    }
 }
 
 void MainWindow::on_pushButton_3_pressed()
@@ -47,7 +84,11 @@ void MainWindow::on_pushButton_ajouter_clicked()
         QMessageBox::critical(this, "Error", "Tous les champs sont obligatoires!", QMessageBox::Ok);
         return; // Stop further execution
     }
-
+    if (!ui->lineedit_nom->text().contains(QRegExp("^[a-zA-Zéèêëàâäôöûüç -]+$")) ||
+            !ui->lineedit_prenom->text().contains(QRegExp("^[a-zA-Zéèêëàâäôöûüç -]+$"))) {
+            QMessageBox::critical(this, "Erreur", "Le nom et le prénom ne doivent contenir que des lettres alphabétiques!", QMessageBox::Ok);
+            return; // Arrêter l'exécution ultérieure
+        }
     c.setprenom(ui->lineedit_prenom->text());
     c.setnom(ui->lineedit_nom->text());
     c.settel(ui->lineedit_tel->text());
@@ -206,6 +247,31 @@ bool MainWindow::modifierAthlete(int id)
     athlete* a = rechercherParId(id);
 
     if (a != nullptr) {
+
+        if (ui->lineedit_prenom_modif->text().isEmpty() ||
+                    ui->lineedit_nom_modif->text().isEmpty() ||
+                    ui->lineedit_tel_modif->text().isEmpty() ||
+                    ui->lineedit_adresse_modif->text().isEmpty() ||
+                    (!ui->radiobutton_homme_modif->isChecked() && !ui->radiobutton_femme_modif->isChecked())) {
+                    QMessageBox::critical(this, "Erreur", "Tous les champs obligatoires doivent être remplis!", QMessageBox::Ok);
+                    delete a; // Assurez-vous de libérer la mémoire une fois que vous avez fini d'utiliser l'objet
+                    return false; // Arrêter l'exécution ultérieure
+                }
+
+                // Vérifier si le nom et le prénom contiennent uniquement des caractères alphabétiques
+                if (!ui->lineedit_nom_modif->text().contains(QRegExp("^[a-zA-Zéèêëàâäôöûüç -]+$")) ||
+                    !ui->lineedit_prenom_modif->text().contains(QRegExp("^[a-zA-Zéèêëàâäôöûüç -]+$"))) {
+                    QMessageBox::critical(this, "Erreur", "Le nom et le prénom ne doivent contenir que des lettres alphabétiques!", QMessageBox::Ok);
+                    delete a; // Assurez-vous de libérer la mémoire une fois que vous avez fini d'utiliser l'objet
+                    return false; // Arrêter l'exécution ultérieure
+                }
+                if (!ui->lineedit_tel_modif->text().contains(QRegExp("^[0-9]+$"))) {
+                            QMessageBox::critical(this, "Erreur", "Le numéro de téléphone ne doit contenir que des chiffres!", QMessageBox::Ok);
+                            delete a; // Assurez-vous de libérer la mémoire une fois que vous avez fini d'utiliser l'objet
+                            return false; // Arrêter l'exécution ultérieure
+                        }
+
+
         // Modifier les informations de l'athlète
         a->setnom(ui->lineedit_nom_modif->text());
         a->setprenom(ui->lineedit_prenom_modif->text());
@@ -247,4 +313,18 @@ void MainWindow::on_pushButton_modifier_clicked()
 {
     int id = ui->lineedit_id_modif->text().toInt();
     modifierAthlete(id);
+}
+void MainWindow::on_pushButton_afficher_clicked()
+{
+    // Créez une instance de la classe athlete
+    athlete a;
+
+    // Afficher la liste des athlètes dans le QTableView
+    QSqlQueryModel* model = a.afficher();
+
+    if (model != nullptr) {
+        ui->tableView->setModel(model);
+        // Facultatif : ajustez la largeur des colonnes du QTableView
+        ui->tableView->resizeColumnsToContents();
+    }
 }

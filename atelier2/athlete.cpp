@@ -136,5 +136,50 @@ QString athlete::get_date_as_string()
    }
 
 
+   QSqlQueryModel* athlete::afficher()
+   {
+       QSqlQueryModel* model = new QSqlQueryModel();
+       model->setQuery("SELECT ID_ATHLETE, NOM, PRENOM, TEL, ADRESSE, TYPE_SPORT, GENRE, DATE_NAISSANCE FROM ATHLETE");
+
+       if (model->lastError().isValid()) {
+           // Gérer les erreurs d'exécution de la requête
+           qDebug() << "Erreur SQL : " << model->lastError().text();
+           delete model;
+           return nullptr;
+       }
+
+       return model;
+   }
+
+
+   QSqlQueryModel* athlete::rechercher(const QString& critere, const QString& typeRecherche) {
+       QSqlQueryModel* model = new QSqlQueryModel();
+       QSqlQuery query;
+
+       // Utilisez le critère pour effectuer la recherche en fonction du type choisi
+       QString queryString;
+       if (typeRecherche == "NOM") {
+           queryString = "SELECT ID_ATHLETE, NOM, PRENOM, TEL, ADRESSE, TYPE_SPORT, GENRE, DATE_NAISSANCE FROM ATHLETE WHERE NOM LIKE :criterePattern";
+       } else if (typeRecherche == "PRENOM") {
+           queryString = "SELECT ID_ATHLETE, NOM, PRENOM, TEL, ADRESSE, TYPE_SPORT, GENRE, DATE_NAISSANCE FROM ATHLETE WHERE PRENOM LIKE :criterePattern";
+       } else if (typeRecherche == "ID_ATHLETE") {
+           queryString = "SELECT ID_ATHLETE, NOM, PRENOM, TEL, ADRESSE, TYPE_SPORT, GENRE, DATE_NAISSANCE FROM ATHLETE WHERE ID_ATHLETE LIKE :criterePattern";
+       }else if (typeRecherche == "TELEPHONE") {
+           queryString = "SELECT ID_ATHLETE, NOM, PRENOM, TEL, ADRESSE, TYPE_SPORT, GENRE, DATE_NAISSANCE FROM ATHLETE WHERE TEL LIKE :criterePattern";
+       }
+       // Ajoutez d'autres conditions en fonction des types de recherche disponibles
+
+       query.prepare(queryString);
+       query.bindValue(":criterePattern", "%" + critere + "%");  // Recherche partielle (LIKE %critere%)
+
+       if (query.exec()) {
+           model->setQuery(query);
+           return model;
+       } else {
+           // Gérer les erreurs ou retourner nullptr selon vos besoins
+           delete model;
+           return nullptr;
+       }
+   }
 
 
