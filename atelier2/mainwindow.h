@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include "athlete.h"
-
+#include <QtCharts>
+#include <QtGlobal>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,6 +29,13 @@ private slots:
     void on_pushButton_modifier_clicked();
     void on_pushButtonRechercher_met_clicked();
     void on_pushButton_afficher_clicked();
+    void on_pushButton_tri_asc_clicked();
+    void on_pushButton_tri_desc_clicked();
+    void on_pushButton_export_pdf_clicked();
+    void on_comboBoxCritere_currentIndexChanged(const QString &critere);
+    //void on_pushButton_chart_clicked();
+
+
    // void slotComboBoxChanged();
 private:
     Ui::MainWindow *ui;
@@ -36,7 +44,9 @@ private:
     bool supprimerAthleteParId(int id);
     bool modifierAthlete(int id);
     athlete* rechercherParId(int id);
-
-
+    void tri_liste_asc();
+    void tri_liste_desc();
+    void exportToPdf(const QString &fileName);
+    QtCharts::QChartView* stats(QString critere);
 };
 #endif // MAINWINDOW_H

@@ -1,10 +1,12 @@
 #include "athlete.h"
+#include "mainwindow.h"
 #include <QSqlQuery>
 #include <QDebug>
 #include <QObject>
 #include<QString>
 #include<QDate>
 #include<QSqlError>
+#include <QTableView>
 
 athlete::athlete()
 {
@@ -142,7 +144,6 @@ QString athlete::get_date_as_string()
        model->setQuery("SELECT ID_ATHLETE, NOM, PRENOM, TEL, ADRESSE, TYPE_SPORT, GENRE, DATE_NAISSANCE FROM ATHLETE");
 
        if (model->lastError().isValid()) {
-           // Gérer les erreurs d'exécution de la requête
            qDebug() << "Erreur SQL : " << model->lastError().text();
            delete model;
            return nullptr;
@@ -181,5 +182,4 @@ QString athlete::get_date_as_string()
            return nullptr;
        }
    }
-
 

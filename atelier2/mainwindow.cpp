@@ -4,21 +4,49 @@
 #include "dialog.h"
 #include <QMessageBox>
 #include<QDate>
+#include <QDebug>
+#include <QSqlError>
+#include <QPrinter>
+#include <QPainter>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QChartView>
+#include <QtCharts/QPieSeries>
+#include<QPieSlice>
+#include<QChartView>
+#include <QFileDialog>
+#include <QVBoxLayout>
+#include <QStackedWidget>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPixmap pix("C:/Users/rayen/Desktop/logo_projet.png");
-    int w = ui->label_pic->width();
+    setWindowIcon(QIcon(":/resources/img/logo_projet.png"));
+    QPixmap pix(":/resources/img/logo_projet.png");
+    /*int w = ui->label_pic->width();
     int h = ui->label_pic->height();
-    ui->label_pic->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
+    ui->label_pic->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));*/
     ui->lineedit_tel->setValidator(new QIntValidator(0, 99999999, this));
     connect(ui->pushButton_rechercher, SIGNAL(clicked()), this, SLOT(on_pushButton_rechercher_clicked()));
     connect(ui->pushButton_supprimer, SIGNAL(clicked()), this, SLOT(on_pushButton_supprimer_clicked()));
-    // Dans le constructeur de MainWindow
     connect(ui->pushButtonRechercher_met, SIGNAL(clicked()), this, SLOT(on_pushButtonRechercher_met_clicked()));
+    connect(ui->pushButton_chart, SIGNAL(clicked()), this, SLOT(on_pushButton_chart_clicked()));
+    // Validation for date of birth
+        connect(ui->dateedit, &QDateEdit::dateChanged, [this]() {
+            QDate date = ui->dateedit->date();
+            QDate currentDate = QDate::currentDate();
+
+            // Validate the date of birth
+            if (date > currentDate) {
+                QMessageBox::warning(this, "Avertissement", "La date de naissance ne peut pas être supérieure à la date actuelle!", QMessageBox::Ok);
+                ui->dateedit->setDate(currentDate); // Reset the date of birth to current date
+            }
+        });
 
 }
 
@@ -26,6 +54,64 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
+/*void MainWindow::on_pushButton_chart_clicked()
+{
+    // Créer une nouvelle scène graphique
+    QGraphicsScene *scene = new QGraphicsScene();
+
+    // Créer une série de données pour le graphique (par exemple, un graphique à secteurs)
+    QPieSeries *series = new QPieSeries();
+
+    // Vérifier le critère sélectionné dans le ComboBox
+    QString critere = ui->combobox_chart->currentText();
+
+    if (critere == "Genre") {
+        // Récupérer les données de la base de données pour calculer les pourcentages
+        int totalHommes = 0;
+        int totalFemmes = 0;
+
+        // Interroger la base de données pour récupérer les données pertinentes
+        // Remplacez les requêtes fictives par les requêtes réelles pour récupérer les données de la base de données
+        QSqlQuery queryHommes("SELECT COUNT(*) FROM ATHLETE WHERE GENRE = 'Homme'");
+        if (queryHommes.next()) {
+            totalHommes = queryHommes.value(0).toInt();
+        }
+
+        QSqlQuery queryFemmes("SELECT COUNT(*) FROM ATHLETE WHERE GENRE = 'Femme'");
+        if (queryFemmes.next()) {
+            totalFemmes = queryFemmes.value(0).toInt();
+        }
+
+        // Calculer les pourcentages
+        int total = totalHommes + totalFemmes;
+        if (total > 0) {
+            double pourcentageHommes = (static_cast<double>(totalHommes) / total) * 100;
+            double pourcentageFemmes = (static_cast<double>(totalFemmes) / total) * 100;
+
+            // Ajouter les données au graphique
+            series->append("Hommes", pourcentageHommes);
+            series->append("Femmes", pourcentageFemmes);
+        }
+    } else if (critere == "Type de sport") {
+        // Ajoutez votre logique pour récupérer les données et calculer les pourcentages en fonction du type de sport
+    } else if (critere == "Date de naissance") {
+        // Ajoutez votre logique pour récupérer les données et calculer les pourcentages en fonction de la date de naissance
+    }
+
+    // Ajouter la série à la scène
+    scene->addItem(series);
+
+    // Créer une vue pour afficher la scène graphique
+    QGraphicsView *view = new QGraphicsView(scene);
+
+    // Afficher la vue dans l'objet GraphicsView de votre interface MainWindow
+    ui->graphicsView_chart->setScene(scene);
+}
+
+*/
+
 
 void MainWindow::on_pushButton_2_pressed()
 {
@@ -36,19 +122,22 @@ QSqlQueryModel* rechercher(const QString& critere) {
     QSqlQueryModel* model = new QSqlQueryModel();
     QSqlQuery query;
 
-    // Utilisez le critère pour effectuer la recherche
-    query.prepare("SELECT * FROM ATHLETE WHERE ID_ATHLETE=:critere OR NOM = :critere OR PRENOM = :critere OR TEL = :critere OR TYPE_SPORT = :critere");
+
+    query.prepare("SELECT * FROM ATHLETE WHERE ID_ATHLETE=:critere OR NOM = :critere OR PRENOM = :critere OR TYPE_SPORT = :critere");
     query.bindValue(":critere", critere);
 
     if (query.exec()) {
         model->setQuery(query);
         return model;
     } else {
-        // Gérer les erreurs ou retourner nullptr selon vos besoins
+
         delete model;
         return nullptr;
     }
 }
+
+
+
 
 void MainWindow::on_pushButtonRechercher_met_clicked() {
     QString critereRecherche = ui->lineEdit_critereRecherche->text();
@@ -89,6 +178,11 @@ void MainWindow::on_pushButton_ajouter_clicked()
             QMessageBox::critical(this, "Erreur", "Le nom et le prénom ne doivent contenir que des lettres alphabétiques!", QMessageBox::Ok);
             return; // Arrêter l'exécution ultérieure
         }
+    if(ui->lineedit_tel->text().length()!=8)
+    {
+        QMessageBox::critical(this, "Error", "le numero de telephone est invalide!", QMessageBox::Ok);
+        return;
+    }
     c.setprenom(ui->lineedit_prenom->text());
     c.setnom(ui->lineedit_nom->text());
     c.settel(ui->lineedit_tel->text());
@@ -174,7 +268,7 @@ void MainWindow::rechercherAthleteParId_modifier(int id)
     athlete* a = rechercherParId(id);
 
        if (a != nullptr) {
-           // Afficher les informations de l'athlète dans les lineEdits
+           // Afficher les informations de l'athlète dans lxes lineEdits
            ui->lineedit_nom_modif->setText(a->get_nom());
            ui->lineedit_prenom_modif->setText(a->get_prenom());
            ui->dateedit_modif->setDate(a->get_date());
@@ -192,9 +286,8 @@ void MainWindow::rechercherAthleteParId_modifier(int id)
            // Afficher le type de sport dans la combobox
            ui->combobox_modif->setCurrentText(a->get_type_sport());
 
-           delete a; // Assurez-vous de libérer la mémoire une fois que vous avez fini d'utiliser l'objet
+           delete a;
        } else {
-           // Gérer le cas où l'athlète n'est pas trouvé
            QMessageBox::warning(this, "Avertissement", "Athlète non trouvé!", QMessageBox::Ok);
        }
 }
@@ -219,7 +312,6 @@ bool MainWindow::supprimerAthleteParId(int id)
     QSqlQuery query;
     query.prepare("DELETE FROM ATHLETE WHERE ID_ATHLETE = :id");
     query.bindValue(":id", id);
-
     return query.exec();
 }
 
@@ -245,7 +337,6 @@ void MainWindow::on_pushButton_supprimer_clicked()
 bool MainWindow::modifierAthlete(int id)
 {
     athlete* a = rechercherParId(id);
-
     if (a != nullptr) {
 
         if (ui->lineedit_prenom_modif->text().isEmpty() ||
@@ -258,18 +349,24 @@ bool MainWindow::modifierAthlete(int id)
                     return false; // Arrêter l'exécution ultérieure
                 }
 
-                // Vérifier si le nom et le prénom contiennent uniquement des caractères alphabétiques
                 if (!ui->lineedit_nom_modif->text().contains(QRegExp("^[a-zA-Zéèêëàâäôöûüç -]+$")) ||
                     !ui->lineedit_prenom_modif->text().contains(QRegExp("^[a-zA-Zéèêëàâäôöûüç -]+$"))) {
                     QMessageBox::critical(this, "Erreur", "Le nom et le prénom ne doivent contenir que des lettres alphabétiques!", QMessageBox::Ok);
-                    delete a; // Assurez-vous de libérer la mémoire une fois que vous avez fini d'utiliser l'objet
-                    return false; // Arrêter l'exécution ultérieure
+                    delete a;
+                    return false;
                 }
+
+
                 if (!ui->lineedit_tel_modif->text().contains(QRegExp("^[0-9]+$"))) {
                             QMessageBox::critical(this, "Erreur", "Le numéro de téléphone ne doit contenir que des chiffres!", QMessageBox::Ok);
-                            delete a; // Assurez-vous de libérer la mémoire une fois que vous avez fini d'utiliser l'objet
-                            return false; // Arrêter l'exécution ultérieure
+                            delete a;
+                            return false;
                         }
+                if(ui->lineedit_tel->text().length()!=8)
+                {
+                    QMessageBox::critical(this, "Error", "le numero de telephone est invalide!", QMessageBox::Ok);
+                    return false;
+                }
 
 
         // Modifier les informations de l'athlète
@@ -286,10 +383,8 @@ bool MainWindow::modifierAthlete(int id)
             genre = "Femme";
         }
         a->settype_genre(genre);
-
         QString TS = ui->combobox_modif->currentText();
         a->settype_sport(TS);
-
         // Appeler la méthode de modification
         bool success = a->modifier(id);
 
@@ -299,10 +394,9 @@ bool MainWindow::modifierAthlete(int id)
             QMessageBox::critical(this, "Erreur", "Erreur lors de la modification des informations de l'athlète!", QMessageBox::Ok);
         }
 
-        delete a; // Assurez-vous de libérer la mémoire une fois que vous avez fini d'utiliser l'objet
+        delete a;
         return success;
     } else {
-        // Gérer le cas où l'athlète n'est pas trouvé
         QMessageBox::warning(this, "Avertissement", "Athlète non trouvé!", QMessageBox::Ok);
         return false;
     }
@@ -314,9 +408,10 @@ void MainWindow::on_pushButton_modifier_clicked()
     int id = ui->lineedit_id_modif->text().toInt();
     modifierAthlete(id);
 }
+
+
 void MainWindow::on_pushButton_afficher_clicked()
 {
-    // Créez une instance de la classe athlete
     athlete a;
 
     // Afficher la liste des athlètes dans le QTableView
@@ -324,7 +419,123 @@ void MainWindow::on_pushButton_afficher_clicked()
 
     if (model != nullptr) {
         ui->tableView->setModel(model);
-        // Facultatif : ajustez la largeur des colonnes du QTableView
         ui->tableView->resizeColumnsToContents();
     }
 }
+
+
+void MainWindow::on_pushButton_tri_asc_clicked()
+{
+    QString critere = ui->comboBox_critereRech_2->currentText(); // Récupérer le critère de tri sélectionné
+
+    QString query = "SELECT * FROM ATHLETE ORDER BY " + critere + " ASC"; // Construction de la requête SQL
+
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+
+    if (model->lastError().isValid()) {
+        qDebug() << "Erreur lors du tri de la liste des athlètes : " << model->lastError().text();
+        delete model;
+        return;
+    }
+
+    // Mettre à jour le modèle du QTableView avec les données triées
+    ui->tableView->setModel(model);
+    ui->tableView->resizeColumnsToContents();
+
+}
+
+void MainWindow::on_pushButton_tri_desc_clicked()
+{
+    QString critere = ui->comboBox_critereRech_2->currentText(); // Récupérer le critère de tri sélectionné
+
+    QString query = "SELECT * FROM ATHLETE ORDER BY " + critere + " DESC"; // Construction de la requête SQL
+
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+
+    if (model->lastError().isValid()) {
+        qDebug() << "Erreur lors du tri de la liste des athlètes : " << model->lastError().text();
+        delete model;
+        return;
+    }
+
+    // Mettre à jour le modèle du QTableView avec les données triées
+    ui->tableView->setModel(model);
+    ui->tableView->resizeColumnsToContents();
+
+}
+
+void MainWindow::exportToPdf(const QString &fileName)
+{
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Enregistrer sous"), fileName, tr("Fichiers PDF (*.pdf)"));
+    if (filePath.isEmpty()) return;
+
+    printer.setOutputFileName(filePath);
+
+    QPainter painter(&printer);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setRenderHint(QPainter::TextAntialiasing);
+
+    ui->tableView->render(&painter);
+}
+
+void MainWindow::on_pushButton_export_pdf_clicked()
+{
+    exportToPdf("liste_athletes.pdf");
+}
+
+
+
+
+
+QtCharts::QChartView* MainWindow::stats(QString critere)
+{
+    QSqlQuery query;
+    QString queryStr;
+
+    if (critere == "TYPE_SPORT") {
+        queryStr = "SELECT COUNT(*) as sportCount FROM ATHLETE GROUP BY TYPE_SPORT ORDER BY sportCount DESC";
+    } else if (critere == "GENRE") {
+        queryStr = "SELECT COUNT(*) as genreCount FROM ATHLETE GROUP BY GENRE ORDER BY genreCount DESC";
+    } else if (critere == "DATE_NAISSANCE") {
+        queryStr = "SELECT COUNT(*) as dateCount FROM ATHLETE GROUP BY DATE_NAISSANCE ORDER BY dateCount DESC";
+    }
+
+    query.exec(queryStr);
+
+    QtCharts::QPieSeries *series = new QtCharts::QPieSeries();
+    while (query.next()) {
+        QString category = query.value(0).toString();
+        int count = query.value(1).toInt();
+        series->append(category, count);
+    }
+
+    QtCharts::QChart *chart = new QtCharts::QChart();
+    chart->addSeries(series);
+    chart->setTitle("Répartition des données");
+
+    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    return chartView;
+}
+void MainWindow::on_comboBoxCritere_currentIndexChanged(const QString &critere)
+{
+    QtCharts::QChartView *chartView = stats(critere);
+
+        QGraphicsScene *scene = new QGraphicsScene();
+
+        // Créer un QGraphicsProxyWidget pour encapsuler le QtCharts::QChartView
+        QGraphicsProxyWidget *proxy = new QGraphicsProxyWidget();
+        proxy->setWidget(chartView);
+
+        scene->addItem(proxy);
+
+        ui->graphicsView_chart->setScene(scene);
+
+}
+

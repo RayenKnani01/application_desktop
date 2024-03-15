@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>img/crm_14379813.png</file>
+        <file>img/innovation_2082894.png</file>
+        <file>img/logo_projet.png</file>
+        <file>img/recruitment_9167141.png</file>
+        <file>img/search_6033394.png</file>
+        <file>img/trainer_5562201.png</file>
+        <file>img/water-polo_10552843.png</file>
+        <file>img/increase_5880140.png</file>
+        <file>img/down-right-arrow_5689533.png</file>
+        <file>img/up-right-arrow_5689533.png</file>
+        <file>img/pie-chart_8972660.png</file>
+        <file>img/Untitled-1.png</file>
+    </qresource>
+</RCC>

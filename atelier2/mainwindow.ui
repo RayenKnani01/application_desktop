@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1847</width>
-    <height>946</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>40</y>
+      <x>280</x>
+      <y>20</y>
       <width>1674</width>
       <height>861</height>
      </rect>
@@ -101,6 +101,12 @@ QTabBar {
     <property name="currentIndex">
      <number>0</number>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
     <widget class="QWidget" name="afficher">
      <attribute name="title">
       <string>Liste</string>
@@ -108,8 +114,8 @@ QTabBar {
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>100</y>
+        <x>50</x>
+        <y>50</y>
         <width>1021</width>
         <height>541</height>
        </rect>
@@ -206,7 +212,7 @@ QWidget:disabled {
       <property name="geometry">
        <rect>
         <x>1190</x>
-        <y>110</y>
+        <y>70</y>
         <width>271</width>
         <height>41</height>
        </rect>
@@ -231,7 +237,7 @@ border-radius: 20px; </string>
       <property name="geometry">
        <rect>
         <x>1480</x>
-        <y>110</y>
+        <y>70</y>
         <width>51</width>
         <height>41</height>
        </rect>
@@ -249,8 +255,14 @@ font: 75 15pt ;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>../../../Downloads/search_6033394.png</normaloff>../../../Downloads/search_6033394.png</iconset>
+       <iconset resource="resource.qrc">
+        <normaloff>:/resources/img/search_6033394.png</normaloff>:/resources/img/search_6033394.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
       </property>
       <property name="checkable">
        <bool>false</bool>
@@ -265,11 +277,11 @@ font: 75 15pt ;</string>
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="pushButton_tri_asc">
       <property name="geometry">
        <rect>
-        <x>1330</x>
-        <y>310</y>
+        <x>1450</x>
+        <y>160</y>
         <width>51</width>
         <height>41</height>
        </rect>
@@ -284,14 +296,30 @@ background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan 
 font: 75 15pt ;</string>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resources/img/up-right-arrow_5689533.png</normaloff>:/resources/img/up-right-arrow_5689533.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="pushButton_tri_desc">
       <property name="geometry">
        <rect>
-        <x>1330</x>
-        <y>450</y>
+        <x>1510</x>
+        <y>160</y>
         <width>51</width>
         <height>41</height>
        </rect>
@@ -306,14 +334,24 @@ background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan 
 font: 75 15pt ;</string>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resources/img/down-right-arrow_5689533.png</normaloff>:/resources/img/down-right-arrow_5689533.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="pushButton_chart">
       <property name="geometry">
        <rect>
-        <x>1330</x>
-        <y>590</y>
+        <x>1480</x>
+        <y>240</y>
         <width>51</width>
         <height>41</height>
        </rect>
@@ -328,14 +366,79 @@ background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan 
 font: 75 15pt ;</string>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resources/img/pie-chart_8972660.png</normaloff>:/resources/img/pie-chart_8972660.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
       </property>
      </widget>
      <widget class="QComboBox" name="comboBox_critereRecherche">
       <property name="geometry">
        <rect>
-        <x>1230</x>
-        <y>30</y>
+        <x>1290</x>
+        <y>20</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Choisir un critere</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ID_ATHLETE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NOM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>PRENOM</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton_afficher">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>630</y>
+        <width>201</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan global */
+    color: #ffffff; /* Texte blanc */
+    border: 5px solid #2980b9; /* Bordure bleue */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+font: 75 15pt ;</string>
+      </property>
+      <property name="text">
+       <string>Afficher</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_critereRech_2">
+      <property name="geometry">
+       <rect>
+        <x>1280</x>
+        <y>170</y>
         <width>151</width>
         <height>22</height>
        </rect>
@@ -365,17 +468,17 @@ font: 75 15pt ;</string>
       </item>
       <item>
        <property name="text">
-        <string>Telephone</string>
+        <string>DATE_NAISSANCE</string>
        </property>
       </item>
      </widget>
-     <widget class="QPushButton" name="pushButton_afficher">
+     <widget class="QPushButton" name="pushButton_export_pdf">
       <property name="geometry">
        <rect>
-        <x>550</x>
-        <y>660</y>
-        <width>201</width>
-        <height>51</height>
+        <x>1350</x>
+        <y>730</y>
+        <width>51</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -388,17 +491,77 @@ background-color: #2980b9; /* Bleu légèrement plus foncé que l'arrière-plan 
 font: 75 15pt ;</string>
       </property>
       <property name="text">
-       <string>Afficher</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resources/img/Untitled-1.png</normaloff>:/resources/img/Untitled-1.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>85</width>
+        <height>85</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBoxCritere">
+      <property name="geometry">
+       <rect>
+        <x>1280</x>
+        <y>250</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Choisir un critere</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DATE_NAISSANCE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TYPE_SPORT</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GENRE</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QGraphicsView" name="graphicsView_chart">
+      <property name="geometry">
+       <rect>
+        <x>1110</x>
+        <y>290</y>
+        <width>511</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
      <zorder>groupBox_2</zorder>
      <zorder>lineEdit_critereRecherche</zorder>
-     <zorder>pushButton_2</zorder>
-     <zorder>pushButton_3</zorder>
-     <zorder>pushButton_5</zorder>
+     <zorder>pushButton_tri_asc</zorder>
+     <zorder>pushButton_tri_desc</zorder>
+     <zorder>pushButton_chart</zorder>
      <zorder>pushButtonRechercher_met</zorder>
      <zorder>comboBox_critereRecherche</zorder>
      <zorder>pushButton_afficher</zorder>
+     <zorder>comboBox_critereRech_2</zorder>
+     <zorder>pushButton_export_pdf</zorder>
+     <zorder>comboBoxCritere</zorder>
+     <zorder>graphicsView_chart</zorder>
     </widget>
     <widget class="QWidget" name="Ajouter">
      <attribute name="title">
@@ -2018,17 +2181,23 @@ font: 75 15pt ;</string>
      <string>Gestion Athlètes</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_pic">
+   <widget class="QLabel" name="label_17">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>30</y>
-      <width>161</width>
-      <height>141</height>
+      <width>211</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resource.qrc">:/resources/img/logo_projet.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -2038,12 +2207,14 @@ font: 75 15pt ;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1847</width>
+     <width>1920</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

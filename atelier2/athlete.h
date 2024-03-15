@@ -35,6 +35,9 @@ public:
     QSqlQueryModel* afficher();
     bool supprimer(int);
     bool modifier(int id);
+    QSqlQueryModel* tri_liste_asc();
+    QSqlQueryModel* tri_liste_desc();
+
     QSqlQueryModel* rechercher(const QString& critere, const QString& typeRecherche);
 
     QString prenom,nom,tel,adresse,type_sport,genre;
