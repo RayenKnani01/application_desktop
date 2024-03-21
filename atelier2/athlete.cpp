@@ -67,6 +67,26 @@ QString athlete::get_date_as_string()
     return date_fin=date.toString("dd/MM/yyyy");
 }
 
+/*int athlete::getLastInsertedId() const
+{
+    QSqlQuery query;
+    query.exec("SELECT LAST_INSERT_ID() AS last_id");
+    if (query.next()) {
+        return query.value("last_id").toInt();
+    }
+    return -1; // Retourne -1 en cas d'erreur
+}*/
+int athlete::getLastInsertedId(int &idNouvelAthlete) const{
+    QSqlQuery query("SELECT MAX(ID_ATHLETE) AS LI FROM ATHLETE");
+    if (query.next()) {
+        idNouvelAthlete = query.value("LI").toInt();
+        return idNouvelAthlete;
+    }
+    else
+    {
+        return -1; // Retourne -1 en cas d'erreur
+    }
+}
 
 
 
